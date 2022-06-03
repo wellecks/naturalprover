@@ -1,0 +1,4 @@
+tqdm
+transformers==4.8.2
+pytorch-lightning==1.1.1
+tensorboard_logger
