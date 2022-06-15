@@ -24,18 +24,43 @@ Please cite our work if you found the resources in this repository useful:
 }
 ```
 
-## Data
-The `NaturalProofs-Gen` datasets are stored in the `data/` directory using [git-lfs](https://git-lfs.github.com/).
-
+## Quick download
+To download and unpack the data, models, and other files discussed below:
 ```bash
-git-lfs pull
+pip install gdown
+python download.py --data --model --other --savedir /path/to/savedir
+```
+This creates the following file structure:
+```bash
+data/   # NaturalProofs-Gen datasets
+model/  # Pretrained NaturalProver models 
+other/  # Additional files (e.g. example predictions)
 ```
 
+## Data
+
+#### Quick download with `gdown`
+To download and unpack the `NaturalProofs-Gen` datasets:
+```bash
+pip install gdown
+python download.py --data --savedir ./
+```
+This creates the following file structure:
 ```
 data/base  # Original proofwiki, NaturalProofs-Gen (unsplit), redirects (used in evaluation).
 data/gpt3  # NaturalProofs-Gen formatted for GPT-3 fine-tuning + ref-reconstruction for retrieved & provided settings.
 data/gptj  # NaturalProofs-Gen formatted for GPT-2/J fine-tuning (similar to data/gpt3).
 ```
+
+Within each folder, you will see datasets with varied reference-conditioning (`norefs`, `retrefs`, `gtrefs`) and reference reconstruction (`ref-pretrain`) settings.
+
+#### Download with `git-lfs`
+Alternatively, the `NaturalProofs-Gen` datasets are also stored in the `data/` directory using [git-lfs](https://git-lfs.github.com/):
+
+```bash
+git-lfs pull
+```
+This will create the same file structure discussed above.
 
 ## GPT3
 
@@ -91,7 +116,7 @@ Setup that repo by following its README, then see `npgen/gptj/train_gpt{j,2}.sh`
 We provide a GPT-2 model fine-tuned with provided in-context references and reference reconstruction.
 ```
 pip install gdown
-python download.py --gpt2 --savedir /path/to/savedir
+python download.py --model --savedir /path/to/savedir
 
 ==> /path/to/savedir/model/naturalprover_gpt2
 ```
