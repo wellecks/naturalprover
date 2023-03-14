@@ -156,6 +156,13 @@ Results on the core validation set:
 | naturalprover-gptj6b-select10  |  37.83 |    88.80  |                4.84 |
 | naturalprover-gpt3curie-greedy |  42.39 |    89.29 |                1.9  |
 
+The notebook also shows how to print out a theorem statement and proof. The example proof shown in the notebook is generated with `naturalprover-gptj6b-select10`.
+Here is a version converted to Latex:
+
+![example](notebooks/example.png)
+
+
+
 *The repo does not have stepwise++ or next-step suggestions for GPT-2/J*.
 
 
