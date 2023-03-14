@@ -206,13 +206,13 @@ def main():
     model, tokenizer = utils.load_model(args.ckpt)
     model.eval()
 
-    with open(f'{args.datadir}/latest/proofwiki__refs_ground_truth.json') as f:
+    with open(os.path.join(args.datadir, 'base', 'proofwiki__refs_ground_truth.json')) as f:
         ds = json.load(f)
 
     gpt3_ds = {}
     for split in ['train', 'valid', 'test']:
         suffix = '' if args.refs == 'norefs' else '_ref-pretrain'
-        with open(os.path.join(args.datadir, 'gptj', f'gptjft_proofwiki_{args.refs}{suffix}.{split}.jsonl')) as f:
+        with open(os.path.join(args.datadir, 'gptj', f'gptjft_proofwiki_{args.refs}{suffix}.{split}.json')) as f:
             gpt3_ds[split] = [json.loads(line.strip('\n')) for line in f]
 
     if args.core_only:
