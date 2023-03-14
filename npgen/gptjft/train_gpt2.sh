@@ -1,11 +1,11 @@
 TRAIN_FILE=../../data/gptjft_proofwiki_gtrefs_ref-pretrain.train.json
 VALID_FILE=../../data/gptjft_proofwiki_gtrefs_ref-pretrain.valid.json
 MODEL=gpt2-medium
-CONFIG=/path/to/Finetune_GPTNEO_GPTJ6B/finetuning_repo/ds_config.json
+CONFIG=/path/to/naturalprover/npgen/gptjft/ds_config.json
 OUTDIR=/path/to/gpt2
 GPU=0
 
-deepspeed --include localhost:"$GPU" --master_port 61000 /path/to/Finetune_GPTNEO_GPTJ6B/finetuning_repo/run_clm.py \
+deepspeed --include localhost:"$GPU" --master_port 61000 /path/to/naturalprover/npgen/gptjft/run_clm.py \
         --deepspeed "$CONFIG" \
         --model_name_or_path "$MODEL" \
         --train_file "$TRAIN_FILE"\

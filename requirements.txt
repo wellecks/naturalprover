@@ -1,4 +1,9 @@
 tqdm
-transformers==4.8.2
+transformers==4.26.1
 pytorch-lightning==1.1.1
 tensorboard_logger
+mwparserfromhell
+editdistance
+torch==1.11.0+cu113
+deepspeed==0.6.5
+accelerate==0.16.0

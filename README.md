@@ -24,6 +24,8 @@ Please cite our work if you found the resources in this repository useful:
 }
 ```
 
+**Note**: this repo has been updated following publication. For the version at publication time, see the `neurips2022` branch.
+
 ## Quick download
 To download and unpack the data, models, and other files discussed below:
 ```bash
@@ -108,8 +110,8 @@ The notebook reproduces the GPT-3 automatic metrics in the paper (Table 7).
 
 ### Finetuning
 
-We use the [mallorbc/Finetune_GPTNEO_GPTJ6B](https://github.com/mallorbc/Finetune_GPTNEO_GPTJ6B/tree/main/finetuning_repo) repo.
-Setup that repo by following its README, then see `npgen/gptj/train_gpt{j,2}.sh` for example commands.
+See `npgen/gptj/train_gpt{j,2}.sh` for example commands. The script uses Deepspeed, and 
+is based on [mallorbc/Finetune_GPTNEO_GPTJ6B](https://github.com/mallorbc/Finetune_GPTNEO_GPTJ6B/tree/main/finetuning_repo). 
 
 ### GPT2 finetuned model
 
@@ -143,15 +145,16 @@ Then see this notebook for an example of running the metrics:
 ```bash
 notebooks/evaluation.ipynb
 ```
-We provide GPT-2 and GPT-J6B generations (provided in-context references, greedy decoding) in `/other/naturalprover_generations`.
+We provide GPT-2 and GPT-3-curie generations (provided in-context references, greedy decoding) in `/other/naturalprover_generations`, and GPT-J generations with greedy decoding and sample-and-select with the constraint value function (10 samples).
+
+Results on the core validation set:
 
 | name             |   gleu |   ref_f1 |   corpus_ref_halluc |
 |:-----------------|-------:|---------:|--------------------:|
 | naturalprover-gpt2-greedy      |  32.06 |    65.22 |                6.76 |
-| naturalprover-gptj6b-greedy    |  39.14 |    79.23 |                3.51 |
+| naturalprover-gptj6b-greedy    |  38.58 |    79.19 |                2.96 |
+| naturalprover-gptj6b-select10  |  37.83 |    88.80  |                4.84 |
 | naturalprover-gpt3curie-greedy |  42.39 |    89.29 |                1.9  |
-
-*Due to a GPT-J6B-specific discrepancy, GPT-J6B achieves better results than in the inital manuscript*
 
 *The repo does not have stepwise++ or next-step suggestions for GPT-2/J*.
 
