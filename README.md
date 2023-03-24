@@ -14,13 +14,13 @@ This repo contains:
 
 Please cite our work if you found the resources in this repository useful:
 ```
-@article{welleck2022naturalprover,
+@inproceedings{welleck2022naturalprover,
     title={NaturalProver: Grounded Mathematical Proof Generation with Language Models},
     author={Sean Welleck and Jiacheng Liu and Ximing Lu and Hannaneh Hajishirzi and Yejin Choi},
+    booktitle={Advances in Neural Information Processing Systems},
+    editor={Alice H. Oh and Alekh Agarwal and Danielle Belgrave and Kyunghyun Cho},
     year={2022},
-    eprint={2205.12910},
-    archivePrefix={arXiv},
-    primaryClass={cs.CL}
+    url={https://openreview.net/forum?id=rhdfTOiXBng}
 }
 ```
 
